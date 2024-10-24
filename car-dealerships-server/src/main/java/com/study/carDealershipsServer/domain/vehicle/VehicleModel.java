@@ -1,36 +1,32 @@
 package com.study.carDealershipsServer.domain.vehicle;
 
 import com.study.carDealershipsServer.common.VehicleBrand;
-import com.study.carDealershipsServer.common.VehicleType;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Vehicle {
+public class VehicleModel {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true, nullable = false)
-    private String vinNumber;
-
     @Column(nullable = false)
-    private VehicleType type;
+    private VehicleBrand vehicleBrand;
 
-    @OneToOne
-    private VehicleModel model;
+    @Column
+    private String modelName;
 
-    @OneToMany
-    private List<Engine> engines;
-
+    @Column
+    private String generation;
 }

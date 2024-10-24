@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.common;
 
-public enum CarBrands {
+public enum VehicleBrand {
 
     VOLVO("Volvo"),
     BMW("BMW"),
@@ -14,7 +14,7 @@ public enum CarBrands {
 
     String name;
 
-    CarBrands(String brandName) {
+    VehicleBrand(String brandName) {
         this.name = brandName;
     }
 }
