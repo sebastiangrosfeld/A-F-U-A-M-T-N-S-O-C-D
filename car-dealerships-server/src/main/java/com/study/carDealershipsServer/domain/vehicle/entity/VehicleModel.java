@@ -30,9 +30,9 @@ public class VehicleModel {
     private String modelName;
 
     @Column(nullable = false)
-    private Date startProduction;
+    private Integer startProduction;
 
     @Column(nullable = false)
-    private Date endProduction;
+    private Integer endProduction;
 
 }

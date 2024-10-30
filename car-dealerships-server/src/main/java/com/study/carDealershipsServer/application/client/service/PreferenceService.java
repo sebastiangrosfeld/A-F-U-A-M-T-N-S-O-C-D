@@ -56,7 +56,7 @@ public class PreferenceService implements PreferenceUseCases {
         if(!clientRepository.existsById(preferenceDTO.clientId())) {
             throw new RuntimeException("Client with id " + preferenceDTO.clientId() + " does not exist");
         }
-        if (!preferenceDTO.modelName().isBlank() && !vehicleModelRepository.existsVehicleModelByModelName(preferenceDTO.modelName())) {
+        if (preferenceDTO.modelName() != null && !vehicleModelRepository.existsVehicleModelByModelName(preferenceDTO.modelName())) {
             throw new RuntimeException("Model with name " + preferenceDTO.modelName() + " does not exist");
         }
         if (vehiclePreferenceRepository.countVehiclePreferencesByClientId(preferenceDTO.clientId()) >= 5L) {

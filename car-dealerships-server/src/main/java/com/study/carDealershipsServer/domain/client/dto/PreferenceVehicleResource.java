@@ -11,9 +11,9 @@ import java.util.UUID;
 public record PreferenceVehicleResource(
 
         UUID id,
-        VehicleType vehicleType,
+        String vehicleType,
         VehicleModelResource vehicleModel,
-        VehicleBrand vehicleBrand,
+        String vehicleBrand,
         Integer minimalPower,
         Integer maximalPower,
         Integer minimalMileage,

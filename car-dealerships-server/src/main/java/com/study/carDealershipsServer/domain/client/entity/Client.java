@@ -1,10 +1,7 @@
 package com.study.carDealershipsServer.domain.client.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,10 +11,10 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Client {
 
     @Id
-    @GeneratedValue
     private UUID id;
 
     @Column(unique = true, nullable = false)
@@ -30,7 +27,7 @@ public class Client {
     private String secondName;
 
     @Column(nullable = false)
-    private String lastName;
+    private String surname;
 
     @Column(unique = true, nullable = false)
     private String phone;

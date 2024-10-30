@@ -25,13 +25,13 @@ public class VehiclePreference {
     private Client client;
 
     @Column
-    private VehicleType vehicleType;
+    private String vehicleType;
 
     @OneToOne
     private VehicleModel vehicleModel;
 
     @Column
-    private VehicleBrand vehicleBrand;
+    private String vehicleBrand;
 
     @Column
     private Integer minimalPower;

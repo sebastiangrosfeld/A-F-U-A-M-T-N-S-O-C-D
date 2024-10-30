@@ -1,15 +1,17 @@
 package com.study.carDealershipsServer.domain.client.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.extern.jackson.Jacksonized;
 
-import java.util.Date;
 import java.util.UUID;
 
 
+@Jacksonized
+@Builder
 public record PreferenceVehicleDTO(
-
         String vehicleType,
-        @NotNull
         UUID clientId,
         String vehicleBrand,
         String modelName,

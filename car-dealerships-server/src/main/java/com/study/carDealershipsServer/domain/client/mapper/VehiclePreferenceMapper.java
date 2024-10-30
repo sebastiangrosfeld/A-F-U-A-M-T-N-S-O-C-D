@@ -28,9 +28,9 @@ public class VehiclePreferenceMapper {
                 .orElse(null);
         return VehiclePreference.builder()
                 .client(clientProxy)
-                .vehicleType(VehicleType.valueOf(preferenceVehicleDTO.vehicleType()))
+                .vehicleType(preferenceVehicleDTO.vehicleType())
                 .vehicleModel(model)
-                .vehicleBrand(VehicleBrand.valueOf(preferenceVehicleDTO.vehicleBrand()))
+                .vehicleBrand(preferenceVehicleDTO.vehicleBrand())
                 .minimalPower(preferenceVehicleDTO.minimalPower())
                 .maximalPower(preferenceVehicleDTO.maximalPower())
                 .minimalMileage(preferenceVehicleDTO.minimalMileage())

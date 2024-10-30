@@ -11,9 +11,10 @@ import java.util.List;
 import java.util.UUID;
 
 import static com.study.carDealershipsServer.common.Constants.CLIENT_PREFIX;
+import static com.study.carDealershipsServer.common.Constants.PREFERENCES_PREFIX;
 
 @RestController
-@RequestMapping(CLIENT_PREFIX + "/preferences")
+@RequestMapping(CLIENT_PREFIX + PREFERENCES_PREFIX)
 @RequiredArgsConstructor
 public class PreferenceController {
 
