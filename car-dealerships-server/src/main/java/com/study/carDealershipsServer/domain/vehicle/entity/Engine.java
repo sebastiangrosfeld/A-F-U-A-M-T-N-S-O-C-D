@@ -1,6 +1,5 @@
-package com.study.carDealershipsServer.domain.vehicle;
+package com.study.carDealershipsServer.domain.vehicle.entity;
 
-import com.study.carDealershipsServer.common.VehicleBrand;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,18 +14,25 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleModel {
+public class Engine {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
-    private VehicleBrand vehicleBrand;
+    private String name;
 
-    @Column
-    private String modelName;
+    @Column(nullable = false)
+    private String typeOfFuel;
 
-    @Column
-    private String generation;
+    @Column(nullable = false)
+    private Integer numberOfCylinders;
+
+    @Column(nullable = false)
+    private Integer horsePower;
+
+    @Column(nullable = false)
+    private Integer torque;
+
 }

@@ -1,24 +1,28 @@
-package com.study.carDealershipsServer.domain.client;
+package com.study.carDealershipsServer.domain.client.entity;
 
 import com.study.carDealershipsServer.common.VehicleBrand;
 import com.study.carDealershipsServer.common.VehicleType;
-import com.study.carDealershipsServer.domain.vehicle.VehicleModel;
+import com.study.carDealershipsServer.domain.vehicle.entity.VehicleModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleReference {
+@Builder
+public class VehiclePreference {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private UUID id;
+
+    @OneToOne
+    private Client client;
 
     @Column
     private VehicleType vehicleType;
@@ -28,9 +32,6 @@ public class VehicleReference {
 
     @Column
     private VehicleBrand vehicleBrand;
-
-    @Column
-    private String modelName;
 
     @Column
     private Integer minimalPower;
@@ -43,6 +44,12 @@ public class VehicleReference {
 
     @Column
     private Integer maximalMileage;
+
+    @Column
+    private Integer startProduction;
+
+    @Column
+    private Integer endProduction;
 
     @Column
     private String color;

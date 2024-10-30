@@ -1,4 +1,4 @@
-package com.study.carDealershipsServer.domain.client;
+package com.study.carDealershipsServer.domain.client.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,10 +18,7 @@ public class Client {
 
     @Id
     @GeneratedValue
-    private Long id;
-
-    @Column(unique = true, nullable = false)
-    private UUID clientId;
+    private UUID id;
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -42,6 +39,6 @@ public class Client {
     private boolean active = true;
 
     @OneToMany
-    private List<VehicleReference> vehicleReferences;
+    private List<VehiclePreference> vehiclePreferences;
 
 }

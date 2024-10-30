@@ -1,6 +1,5 @@
-package com.study.carDealershipsServer.domain.vehicle;
+package com.study.carDealershipsServer.domain.vehicle.entity;
 
-import com.study.carDealershipsServer.common.VehicleBrand;
 import com.study.carDealershipsServer.common.VehicleType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

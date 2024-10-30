@@ -1,5 +1,6 @@
-package com.study.carDealershipsServer.domain.vehicle;
+package com.study.carDealershipsServer.domain.vehicle.entity;
 
+import com.study.carDealershipsServer.common.VehicleBrand;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,30 +10,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Engine {
+public class VehicleModel {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private VehicleBrand vehicleBrand;
+
+    @Column(nullable = false, unique = true)
+    private String modelName;
 
     @Column(nullable = false)
-    private String typeOfFuel;
+    private Date startProduction;
 
     @Column(nullable = false)
-    private Integer numberOfCylinders;
-
-    @Column(nullable = false)
-    private Integer horsePower;
-
-    @Column(nullable = false)
-    private Integer torque;
+    private Date endProduction;
 
 }
