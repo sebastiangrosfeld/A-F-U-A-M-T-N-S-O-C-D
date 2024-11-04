@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.application.client.service;
 
-import com.study.carDealershipsServer.application.client.useCase.PreferenceUseCases;
+import com.study.carDealershipsServer.application.client.useCase.PreferenceClientInterface;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.mapper.VehiclePreferenceMapper;
@@ -18,7 +18,7 @@ import static java.util.Collections.emptyList;
 
 @Service
 @RequiredArgsConstructor
-public class PreferenceService implements PreferenceUseCases {
+public class PreferenceClientService implements PreferenceClientInterface {
 
     private final VehiclePreferenceRepository vehiclePreferenceRepository;
     private final ClientRepository clientRepository;

@@ -1,15 +1,16 @@
-package com.study.carDealershipsServer.application.client.controller;
+package com.study.carDealershipsServer.application.manager.controller;
+
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.study.carDealershipsServer.common.Constants.MANAGER_PREFIX;
-import static com.study.carDealershipsServer.common.Constants.VEHICLE_PREFIX;
+import static com.study.carDealershipsServer.common.Constants.*;
 
 @RestController
 @RequestMapping(MANAGER_PREFIX + VEHICLE_PREFIX)
 @RequiredArgsConstructor
-public class VehicleController {
+public class VehicleManagerController {
+
 
 }

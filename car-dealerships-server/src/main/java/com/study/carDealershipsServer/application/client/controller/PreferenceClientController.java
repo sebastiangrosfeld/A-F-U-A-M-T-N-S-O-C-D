@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.application.client.controller;
 
-import com.study.carDealershipsServer.application.client.useCase.PreferenceUseCases;
+import com.study.carDealershipsServer.application.client.useCase.PreferenceClientInterface;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import lombok.RequiredArgsConstructor;
@@ -16,31 +16,31 @@ import static com.study.carDealershipsServer.common.Constants.PREFERENCES_PREFIX
 @RestController
 @RequestMapping(CLIENT_PREFIX + PREFERENCES_PREFIX)
 @RequiredArgsConstructor
-public class PreferenceController {
+public class PreferenceClientController {
 
-    private final PreferenceUseCases preferenceUseCases;
+    private final PreferenceClientInterface preferenceClientInterface;
 
     @PostMapping
     public ResponseEntity<Void> createPreference(@RequestBody PreferenceVehicleDTO preferenceVehicleDTO) {
-        preferenceUseCases.createPreference(preferenceVehicleDTO);
+        preferenceClientInterface.createPreference(preferenceVehicleDTO);
         return ResponseEntity.status(201).build();
     }
 
-    @GetMapping("/{clientId}")
+    @GetMapping("/{clientId}/all")
     public ResponseEntity<List<PreferenceVehicleResource>> getPreferences(@PathVariable UUID clientId) {
-        var preferences = preferenceUseCases.getPreferences(clientId);
+        var preferences = preferenceClientInterface.getPreferences(clientId);
         return ResponseEntity.ok(preferences);
     }
 
     @GetMapping("/{preferenceId}")
     public ResponseEntity<PreferenceVehicleResource> getPreference(@PathVariable UUID preferenceId) {
-        var preference = preferenceUseCases.getPreference(preferenceId);
+        var preference = preferenceClientInterface.getPreference(preferenceId);
         return ResponseEntity.ok(preference);
     }
 
     @DeleteMapping("/{preferenceId}")
     public ResponseEntity<Void> deletePreferences(@PathVariable UUID preferenceId) {
-        preferenceUseCases.deletePreference(preferenceId);
+        preferenceClientInterface.deletePreference(preferenceId);
         return ResponseEntity.noContent().build();
     }
 }
