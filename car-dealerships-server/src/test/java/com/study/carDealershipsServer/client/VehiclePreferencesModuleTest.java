@@ -1,6 +1,8 @@
 package com.study.carDealershipsServer.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.study.carDealershipsServer.common.VehicleBrand;
+import com.study.carDealershipsServer.common.VehicleType;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
 import com.study.carDealershipsServer.domain.client.entity.Client;
 import com.study.carDealershipsServer.domain.client.repository.ClientRepository;
@@ -58,8 +60,8 @@ public class VehiclePreferencesModuleTest {
 
         PreferenceVehicleDTO preferenceVehicleDTO = PreferenceVehicleDTO.builder()
                 .clientId(clientId)
-                .vehicleType("Car")
-                .vehicleBrand("Volvo")
+                .vehicleType(VehicleType.valueOf("CAR"))
+                .vehicleBrand(VehicleBrand.valueOf("VOLVO"))
                 .color("red")
                 .build();
 
