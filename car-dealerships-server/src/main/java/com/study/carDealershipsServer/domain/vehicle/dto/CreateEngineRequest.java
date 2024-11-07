@@ -1,5 +1,6 @@
 package com.study.carDealershipsServer.domain.vehicle.dto;
 
+import com.study.carDealershipsServer.common.FuelType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
@@ -11,7 +12,7 @@ public record CreateEngineRequest(
         @NotBlank
         String engineName,
         @NotBlank
-        String typeOfFuel,
+        FuelType typeOfFuel,
         @NotNull
         Integer numberOfCylinders,
         @NotNull

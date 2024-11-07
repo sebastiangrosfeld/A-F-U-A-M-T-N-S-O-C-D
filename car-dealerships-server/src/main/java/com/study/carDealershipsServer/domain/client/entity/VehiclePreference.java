@@ -21,7 +21,7 @@ public class VehiclePreference {
     @GeneratedValue
     private UUID id;
 
-    @OneToOne
+    @ManyToOne
     private Client client;
 
     @Column

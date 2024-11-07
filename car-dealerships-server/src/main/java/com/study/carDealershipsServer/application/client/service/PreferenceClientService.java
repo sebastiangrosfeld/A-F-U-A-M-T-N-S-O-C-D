@@ -41,6 +41,7 @@ public class PreferenceClientService implements PreferenceClientInterface {
     }
 
     @Override
+    @Transactional
     public void deletePreference(UUID preferenceId) {
         vehiclePreferenceRepository.deleteById(preferenceId);
     }
