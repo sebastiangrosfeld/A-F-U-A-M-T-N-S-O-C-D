@@ -1,5 +1,6 @@
 package com.study.carDealershipsServer.domain.vehicle.mapper;
 
+import com.study.carDealershipsServer.domain.vehicle.dto.CreateModelRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.VehicleModelResource;
 import com.study.carDealershipsServer.domain.vehicle.entity.VehicleModel;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,15 @@ public class VehicleModelMapper {
                 .modelName(vehicleModel.getModelName())
                 .startProduction(vehicleModel.getStartProduction())
                 .endProduction(vehicleModel.getEndProduction())
+                .build();
+    }
+
+    public VehicleModel createRequestToEntity(CreateModelRequest createModelRequest) {
+        return VehicleModel.builder()
+                .modelName(createModelRequest.modelName())
+                .vehicleBrand(createModelRequest.vehicleBrand())
+                .startProduction(createModelRequest.startProduction())
+                .endProduction(createModelRequest.endProduction())
                 .build();
     }
 }

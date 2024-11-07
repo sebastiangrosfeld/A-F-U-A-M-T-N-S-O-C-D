@@ -20,10 +20,10 @@ class GlobalExceptionHandler {
         return createResponse(e.getMessage(), e.getStatus());
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Map<String, String>> handleException(RuntimeException e) {
-        return createResponse(e.getMessage(), BAD_REQUEST);
-    }
+//    @ExceptionHandler(RuntimeException.class)
+//    public ResponseEntity<Map<String, String>> handleException(RuntimeException e) {
+//        return createResponse(e.getMessage(), BAD_REQUEST);
+//    }
 
     private ResponseEntity<Map<String, String>> createResponse(String error, HttpStatus status) {
         final var content = Map.of(ERROR_KEY, error);

@@ -20,8 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 import java.util.UUID;
 
-import static com.study.carDealershipsServer.common.Constants.CLIENT_PREFIX;
-import static com.study.carDealershipsServer.common.Constants.PREFERENCES_PREFIX;
+import static com.study.carDealershipsServer.common.Constants.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -33,7 +32,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class VehiclePreferencesModuleTest {
 
     private final ObjectMapper mapper = new ObjectMapper();
-    private final String URL_PREFIX = "http://localhost:8080/";
 
     @Autowired
     private MockMvc mockMvc;
@@ -97,8 +95,6 @@ public class VehiclePreferencesModuleTest {
                 ).andReturn();
 
         var oncePreference = mapper.readValue(result.getResponse().getContentAsString(), PreferenceVehicleResource.class);
-
-        System.out.println(result.getResponse().getContentAsString());
 
         assertEquals(preferenceId, oncePreference.id());
         assertEquals(preference, oncePreference);

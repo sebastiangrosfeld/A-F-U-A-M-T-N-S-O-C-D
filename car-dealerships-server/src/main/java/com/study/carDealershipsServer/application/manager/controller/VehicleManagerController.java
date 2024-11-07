@@ -23,7 +23,7 @@ public class VehicleManagerController {
     @PostMapping
     public ResponseEntity<Void> addVehicle(@RequestBody CreateVehicleRequest createVehicleRequest) {
         vehicleManagerInterface.createVehicle(createVehicleRequest);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(201).build();
     }
 
     @GetMapping

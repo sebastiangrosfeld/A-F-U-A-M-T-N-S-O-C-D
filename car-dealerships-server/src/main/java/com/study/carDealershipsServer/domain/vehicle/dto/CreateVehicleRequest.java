@@ -27,8 +27,8 @@ public record CreateVehicleRequest(
         Integer yearOfProduction,
         @NotNull
         Date registrationDate,
-        @NotBlank
         String modelName,
+        CreateModelRequest newModel,
         @Max(3L)
         List<String> engines,
         @Max(3L)

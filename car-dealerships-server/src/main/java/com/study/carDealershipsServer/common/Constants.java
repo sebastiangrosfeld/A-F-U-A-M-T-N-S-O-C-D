@@ -7,4 +7,5 @@ public class Constants {
     public final static String PREFERENCES_PREFIX = "/preferences";
     public final static String VEHICLE_PREFIX = "/vehicles";
     public final static String VEHICLE_MANAGER_PREFIX = "/engines";
+    public final static String URL_PREFIX = "http://localhost:8080/";
 }
