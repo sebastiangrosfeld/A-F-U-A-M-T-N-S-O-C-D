@@ -1,7 +1,7 @@
 package com.study.carDealershipsServer.application.client.service;
 
 import com.study.carDealershipsServer.application.client.useCase.PreferenceClientInterface;
-import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
+import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.mapper.VehiclePreferenceMapper;
 import com.study.carDealershipsServer.domain.client.repository.ClientRepository;
@@ -28,9 +28,9 @@ public class PreferenceClientService implements PreferenceClientInterface {
 
     @Override
     @Transactional
-    public void createPreference(PreferenceVehicleDTO preferenceVehicleDTO) {
-        validatePreference(preferenceVehicleDTO);
-        var preference = vehiclePreferenceMapper.mapDTOToEntity(preferenceVehicleDTO);
+    public void createPreference(CreatePreferenceVehicleRequest createPreferenceVehicleRequest) {
+        validatePreference(createPreferenceVehicleRequest);
+        var preference = vehiclePreferenceMapper.mapDTOToEntity(createPreferenceVehicleRequest);
         vehiclePreferenceRepository.save(preference);
     }
 
@@ -53,7 +53,7 @@ public class PreferenceClientService implements PreferenceClientInterface {
         return vehiclePreferenceMapper.mapEntityToResource(preference);
     }
 
-    private void validatePreference(PreferenceVehicleDTO preferenceDTO) {
+    private void validatePreference(CreatePreferenceVehicleRequest preferenceDTO) {
         if(!clientRepository.existsById(preferenceDTO.clientId())) {
             throw new RuntimeException("Client with id " + preferenceDTO.clientId() + " does not exist");
         }

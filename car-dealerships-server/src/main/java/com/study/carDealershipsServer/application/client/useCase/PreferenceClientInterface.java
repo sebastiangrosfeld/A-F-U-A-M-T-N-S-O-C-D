@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.application.client.useCase;
 
-import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
+import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface PreferenceClientInterface {
 
-    void createPreference(PreferenceVehicleDTO vehicleDTO);
+    void createPreference(CreatePreferenceVehicleRequest vehicleDTO);
 
     List<PreferenceVehicleResource> getPreferences(UUID clientId);
 

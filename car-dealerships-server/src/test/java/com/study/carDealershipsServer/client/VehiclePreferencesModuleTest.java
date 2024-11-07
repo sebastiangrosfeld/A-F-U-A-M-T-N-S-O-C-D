@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.study.carDealershipsServer.common.VehicleBrand;
 import com.study.carDealershipsServer.common.VehicleType;
-import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
+import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.entity.Client;
 import com.study.carDealershipsServer.domain.client.repository.ClientRepository;
@@ -58,14 +58,14 @@ public class VehiclePreferencesModuleTest {
                 .build();
         clientRepository.save(client);
 
-        PreferenceVehicleDTO preferenceVehicleDTO = PreferenceVehicleDTO.builder()
+        CreatePreferenceVehicleRequest createPreferenceVehicleRequest = CreatePreferenceVehicleRequest.builder()
                 .clientId(clientId)
                 .vehicleType(VehicleType.valueOf("CAR"))
                 .vehicleBrand(VehicleBrand.valueOf("VOLVO"))
                 .color("red")
                 .build();
 
-        String preferenceJson = mapper.writeValueAsString(preferenceVehicleDTO);
+        String preferenceJson = mapper.writeValueAsString(createPreferenceVehicleRequest);
 
         mockMvc.perform(post(URI)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -97,6 +97,8 @@ public class VehiclePreferencesModuleTest {
                 ).andReturn();
 
         var oncePreference = mapper.readValue(result.getResponse().getContentAsString(), PreferenceVehicleResource.class);
+
+        System.out.println(result.getResponse().getContentAsString());
 
         assertEquals(preferenceId, oncePreference.id());
         assertEquals(preference, oncePreference);

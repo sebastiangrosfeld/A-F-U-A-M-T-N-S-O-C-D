@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Jacksonized
 @Builder
-public record PreferenceVehicleDTO(
+public record CreatePreferenceVehicleRequest(
         VehicleType vehicleType,
         UUID clientId,
         VehicleBrand vehicleBrand,

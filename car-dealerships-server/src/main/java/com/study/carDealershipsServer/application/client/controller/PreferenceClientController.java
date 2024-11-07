@@ -1,7 +1,7 @@
 package com.study.carDealershipsServer.application.client.controller;
 
 import com.study.carDealershipsServer.application.client.useCase.PreferenceClientInterface;
-import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
+import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +21,8 @@ public class PreferenceClientController {
     private final PreferenceClientInterface preferenceClientInterface;
 
     @PostMapping
-    public ResponseEntity<Void> createPreference(@RequestBody PreferenceVehicleDTO preferenceVehicleDTO) {
-        preferenceClientInterface.createPreference(preferenceVehicleDTO);
+    public ResponseEntity<Void> createPreference(@RequestBody CreatePreferenceVehicleRequest createPreferenceVehicleRequest) {
+        preferenceClientInterface.createPreference(createPreferenceVehicleRequest);
         return ResponseEntity.status(201).build();
     }
 

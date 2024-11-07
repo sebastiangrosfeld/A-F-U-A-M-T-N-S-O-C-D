@@ -1,8 +1,6 @@
 package com.study.carDealershipsServer.domain.client.mapper;
 
-import com.study.carDealershipsServer.common.VehicleBrand;
-import com.study.carDealershipsServer.common.VehicleType;
-import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleDTO;
+import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.entity.Client;
 import com.study.carDealershipsServer.domain.client.entity.VehiclePreference;
@@ -22,23 +20,23 @@ public class VehiclePreferenceMapper {
     private final VehicleModelRepository vehicleModelRepository;
     private final VehicleModelMapper vehicleModelMapper;
 
-    public VehiclePreference mapDTOToEntity(PreferenceVehicleDTO preferenceVehicleDTO) {
-        Client clientProxy = entityManager.getReference(Client.class, preferenceVehicleDTO.clientId());
-        VehicleModel model = vehicleModelRepository.findVehicleModelByModelName(preferenceVehicleDTO.modelName())
+    public VehiclePreference mapDTOToEntity(CreatePreferenceVehicleRequest createPreferenceVehicleRequest) {
+        Client clientProxy = entityManager.getReference(Client.class, createPreferenceVehicleRequest.clientId());
+        VehicleModel model = vehicleModelRepository.findVehicleModelByModelName(createPreferenceVehicleRequest.modelName())
                 .orElse(null);
         return VehiclePreference.builder()
                 .client(clientProxy)
-                .vehicleType(preferenceVehicleDTO.vehicleType())
+                .vehicleType(createPreferenceVehicleRequest.vehicleType())
                 .vehicleModel(model)
-                .vehicleBrand(preferenceVehicleDTO.vehicleBrand())
-                .minimalPower(preferenceVehicleDTO.minimalPower())
-                .maximalPower(preferenceVehicleDTO.maximalPower())
-                .minimalMileage(preferenceVehicleDTO.minimalMileage())
-                .maximalMileage(preferenceVehicleDTO.maximalMileage())
-                .startProduction(preferenceVehicleDTO.startProduction())
-                .endProduction(preferenceVehicleDTO.endProduction())
-                .color(preferenceVehicleDTO.color())
-                .bodyLine(preferenceVehicleDTO.bodyLine())
+                .vehicleBrand(createPreferenceVehicleRequest.vehicleBrand())
+                .minimalPower(createPreferenceVehicleRequest.minimalPower())
+                .maximalPower(createPreferenceVehicleRequest.maximalPower())
+                .minimalMileage(createPreferenceVehicleRequest.minimalMileage())
+                .maximalMileage(createPreferenceVehicleRequest.maximalMileage())
+                .startProduction(createPreferenceVehicleRequest.startProduction())
+                .endProduction(createPreferenceVehicleRequest.endProduction())
+                .color(createPreferenceVehicleRequest.color())
+                .bodyLine(createPreferenceVehicleRequest.bodyLine())
                 .build();
     }
 
