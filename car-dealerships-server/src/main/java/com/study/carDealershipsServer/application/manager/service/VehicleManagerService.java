@@ -14,6 +14,7 @@ import com.study.carDealershipsServer.domain.vehicle.mapper.VehicleModelMapper;
 import com.study.carDealershipsServer.domain.vehicle.repository.EngineRepository;
 import com.study.carDealershipsServer.domain.vehicle.repository.VehicleModelRepository;
 import com.study.carDealershipsServer.domain.vehicle.repository.VehicleRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -59,6 +60,7 @@ public class VehicleManagerService implements VehicleManagerInterface {
     }
 
     @Override
+    @Transactional
     public void deleteVehicle(String vin) {
         if (!vehicleRepository.existsByVinNumber(vin)) {
             throw new ServiceException("Vehicle with provided vin not exists.", NOT_FOUND);

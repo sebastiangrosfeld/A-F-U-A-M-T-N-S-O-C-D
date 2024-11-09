@@ -33,7 +33,7 @@ public class VehicleManagerController {
     }
 
     @GetMapping("/{vin}")
-    public ResponseEntity<VehicleResource> getVehicle(@RequestParam String vin) {
+    public ResponseEntity<VehicleResource> getVehicle(@PathVariable String vin) {
         var vehicle = vehicleManagerInterface.getVehicle(vin);
         return ResponseEntity.ok(vehicle);
     }
