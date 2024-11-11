@@ -2,6 +2,10 @@ package com.study.carDealershipsServer.application.manager.service;
 
 import com.study.carDealershipsServer.application.manager.useCase.VehicleManagerInterface;
 import com.study.carDealershipsServer.common.errors.ServiceException;
+import com.study.carDealershipsServer.domain.manager.repository.PurchaseOfferRepository;
+import com.study.carDealershipsServer.domain.manager.repository.PurchaseRepository;
+import com.study.carDealershipsServer.domain.manager.repository.RentalOfferRepository;
+import com.study.carDealershipsServer.domain.manager.repository.RentalRepository;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateEngineRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateModelRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateVehicleRequest;
@@ -33,6 +37,10 @@ public class VehicleManagerService implements VehicleManagerInterface {
     private final VehicleRepository vehicleRepository;
     private final EngineRepository engineRepository;
     private final VehicleModelRepository vehicleModelRepository;
+    private final PurchaseOfferRepository purchaseOfferRepository;
+    private final RentalOfferRepository rentalOfferRepository;
+    private final RentalRepository rentalRepository;
+    private final PurchaseRepository purchaseRepository;
     private final EngineMapper engineMapper;
     private final VehicleMapper vehicleMapper;
     private final VehicleModelMapper vehicleModelMapper;
@@ -65,7 +73,7 @@ public class VehicleManagerService implements VehicleManagerInterface {
         if (!vehicleRepository.existsByVinNumber(vin)) {
             throw new ServiceException("Vehicle with provided vin not exists.", NOT_FOUND);
         }
-        // TO DO add validation of existing purchases and rentals
+        validateIfVehicleIsUsing(vin);
         vehicleRepository.deleteByVinNumber(vin);
     }
 
@@ -147,6 +155,15 @@ public class VehicleManagerService implements VehicleManagerInterface {
             return vehicleModelRepository.findVehicleModelByModelName(vehicle.modelName()).orElseThrow();
         } else {
             return vehicleModelRepository.findVehicleModelByModelName(vehicle.newModel().modelName()).orElseThrow();
+        }
+    }
+
+    private void validateIfVehicleIsUsing(String vin) {
+        if (purchaseOfferRepository.existsByVehicleVinNumber(vin)
+                || purchaseRepository.existsByVehicleVinNumber(vin)
+                || rentalOfferRepository.existsByVehicleVinNumber(vin)
+                || rentalRepository.existsByVehicleVinNumber(vin)) {
+            throw new ServiceException("Vehicle is still using in system", BAD_REQUEST);
         }
     }
 

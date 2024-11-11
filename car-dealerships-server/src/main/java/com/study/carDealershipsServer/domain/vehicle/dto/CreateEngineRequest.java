@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.domain.vehicle.dto;
 
-import com.study.carDealershipsServer.common.FuelType;
+import com.study.carDealershipsServer.common.enums.FuelType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;

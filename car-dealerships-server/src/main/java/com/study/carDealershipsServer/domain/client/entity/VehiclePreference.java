@@ -1,12 +1,11 @@
 package com.study.carDealershipsServer.domain.client.entity;
 
-import com.study.carDealershipsServer.common.VehicleBrand;
-import com.study.carDealershipsServer.common.VehicleType;
+import com.study.carDealershipsServer.common.enums.VehicleBrand;
+import com.study.carDealershipsServer.common.enums.VehicleType;
 import com.study.carDealershipsServer.domain.vehicle.entity.VehicleModel;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Entity

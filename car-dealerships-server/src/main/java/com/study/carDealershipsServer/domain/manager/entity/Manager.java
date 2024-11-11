@@ -1,4 +1,4 @@
-package com.study.carDealershipsServer.domain.vehicle.entity;
+package com.study.carDealershipsServer.domain.manager.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,4 +23,7 @@ public class Manager {
 
     @Column(nullable = false)
     private String surname;
+
+    @Column(nullable = false)
+    private String branchOffice;
 }

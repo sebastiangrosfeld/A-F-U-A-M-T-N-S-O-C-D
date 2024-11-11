@@ -1,9 +1,9 @@
 package com.study.carDealershipsServer.vehicle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.study.carDealershipsServer.common.FuelType;
-import com.study.carDealershipsServer.common.VehicleBrand;
-import com.study.carDealershipsServer.common.VehicleType;
+import com.study.carDealershipsServer.common.enums.FuelType;
+import com.study.carDealershipsServer.common.enums.VehicleBrand;
+import com.study.carDealershipsServer.common.enums.VehicleType;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateEngineRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateModelRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateVehicleRequest;

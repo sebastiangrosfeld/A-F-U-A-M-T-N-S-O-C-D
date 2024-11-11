@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.domain.vehicle.dto;
 
-import com.study.carDealershipsServer.common.FuelType;
+import com.study.carDealershipsServer.common.enums.FuelType;
 import lombok.Builder;
 import lombok.extern.jackson.Jacksonized;
 

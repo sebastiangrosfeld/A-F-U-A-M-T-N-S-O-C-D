@@ -1,4 +1,4 @@
-package com.study.carDealershipsServer.common;
+package com.study.carDealershipsServer.common.enums;
 
 public enum VehicleBrand {
 
@@ -8,9 +8,7 @@ public enum VehicleBrand {
     VOLKSWAGEN("Volkswagen"),
     SKODA("Skoda"),
     FIAT("Fiat"),
-    OPEL("Opel")
-
-    ;
+    OPEL("Opel");
 
     String name;
 

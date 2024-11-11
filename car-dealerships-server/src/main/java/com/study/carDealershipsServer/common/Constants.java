@@ -6,6 +6,9 @@ public class Constants {
     public final static String MANAGER_PREFIX = "api/managers";
     public final static String PREFERENCES_PREFIX = "/preferences";
     public final static String VEHICLE_PREFIX = "/vehicles";
-    public final static String VEHICLE_MANAGER_PREFIX = "/engines";
+    public final static String ENGINES_PREFIX = "/engines";
+    public final static String RENTALS_PREFIX = "/rentals";
+    public final static String PURCHASES_PREFIX = "/purchases";
+    public final static String AUTH_PREFIX = "api/auth";
     public final static String URL_PREFIX = "http://localhost:8080/";
 }

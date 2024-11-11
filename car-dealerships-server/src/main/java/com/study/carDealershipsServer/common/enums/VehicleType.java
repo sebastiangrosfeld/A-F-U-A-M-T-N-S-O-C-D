@@ -1,4 +1,4 @@
-package com.study.carDealershipsServer.common;
+package com.study.carDealershipsServer.common.enums;
 
 public enum VehicleType {
 

@@ -2,8 +2,8 @@ package com.study.carDealershipsServer.client;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.study.carDealershipsServer.common.VehicleBrand;
-import com.study.carDealershipsServer.common.VehicleType;
+import com.study.carDealershipsServer.common.enums.VehicleBrand;
+import com.study.carDealershipsServer.common.enums.VehicleType;
 import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.entity.Client;
@@ -50,6 +50,7 @@ public class VehiclePreferencesModuleTest {
                 .id(clientId)
                 .firstName("clientName")
                 .phone("6888869")
+                .personalNumber("09543")
                 .active(true)
                 .email("email")
                 .surname("surname")
@@ -118,6 +119,7 @@ public class VehiclePreferencesModuleTest {
                 .id(clientId)
                 .firstName("clientName")
                 .phone("68888691")
+                .personalNumber("8654")
                 .active(true)
                 .email("email2")
                 .surname("surname")

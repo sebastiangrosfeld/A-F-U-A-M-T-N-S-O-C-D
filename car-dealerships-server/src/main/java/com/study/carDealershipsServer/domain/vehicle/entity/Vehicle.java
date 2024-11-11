@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.domain.vehicle.entity;
 
-import com.study.carDealershipsServer.common.VehicleType;
+import com.study.carDealershipsServer.common.enums.VehicleType;
 import jakarta.persistence.*;
 import lombok.*;
 
