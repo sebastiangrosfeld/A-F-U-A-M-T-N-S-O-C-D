@@ -14,4 +14,6 @@ public interface VehicleRepository extends JpaRepository <Vehicle, Long> {
     Optional<Vehicle> findByVinNumber(String vin);
 
     void deleteByVinNumber(String vin);
+
+    Long getIdByVinNumber(String vin);
 }

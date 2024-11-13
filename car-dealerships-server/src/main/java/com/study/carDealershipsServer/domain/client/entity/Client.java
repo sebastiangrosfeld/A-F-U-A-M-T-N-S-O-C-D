@@ -15,6 +15,7 @@ import java.util.UUID;
 public class Client {
 
     @Id
+    @GeneratedValue
     private UUID id;
 
     @Column(unique = true, nullable = false)

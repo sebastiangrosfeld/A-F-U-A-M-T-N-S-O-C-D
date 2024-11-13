@@ -8,6 +8,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -20,6 +21,9 @@ public class Rental {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(nullable = false)
+    private UUID rentalId;
 
     @Column(nullable = false)
     private RentalStatus status;

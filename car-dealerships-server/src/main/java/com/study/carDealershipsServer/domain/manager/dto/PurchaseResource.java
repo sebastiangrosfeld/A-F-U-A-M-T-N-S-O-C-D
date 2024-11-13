@@ -7,14 +7,14 @@ import lombok.Builder;
 import lombok.extern.jackson.Jacksonized;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Jacksonized
 @Builder
 public record PurchaseResource(
         UUID purchaseId,
-        LocalDate purchaseDate,
+        LocalDateTime purchaseDate,
         PurchaseStatus status,
         BigDecimal price,
         ClientResource clientResource,

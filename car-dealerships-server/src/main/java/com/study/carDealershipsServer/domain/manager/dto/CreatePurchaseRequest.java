@@ -1,5 +1,7 @@
 package com.study.carDealershipsServer.domain.manager.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.extern.jackson.Jacksonized;
 
@@ -9,8 +11,13 @@ import java.util.UUID;
 @Jacksonized
 @Builder
 public record CreatePurchaseRequest(
+        @NotNull
         UUID managerId,
+        @NotNull
         BigDecimal price,
-        String vinNumber
+        @NotBlank
+        String vinNumber,
+        @NotBlank
+        String email
 ) {
 }
