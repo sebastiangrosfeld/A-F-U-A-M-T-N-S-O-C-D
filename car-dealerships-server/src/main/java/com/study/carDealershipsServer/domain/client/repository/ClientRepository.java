@@ -13,4 +13,8 @@ public interface ClientRepository extends JpaRepository <Client, UUID> {
     @Query("SELECT c.id FROM Client c WHERE c.email = :email")
     UUID getIdByEmail(String email);
 
+    boolean existsByEmail(String email);
+
+    boolean existsByPersonalNumber(String personalNumber);
+
 }

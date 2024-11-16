@@ -2,18 +2,27 @@ package com.study.carDealershipsServer.client;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.study.carDealershipsServer.common.enums.Roles;
 import com.study.carDealershipsServer.common.enums.VehicleBrand;
 import com.study.carDealershipsServer.common.enums.VehicleType;
+import com.study.carDealershipsServer.domain.auth.entity.AppUser;
 import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
 import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.entity.Client;
 import com.study.carDealershipsServer.domain.client.repository.ClientRepository;
 import com.study.carDealershipsServer.domain.client.repository.VehiclePreferenceRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -29,6 +38,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
+@WithMockUser
 public class VehiclePreferencesModuleTest {
 
     private final ObjectMapper mapper = new ObjectMapper();
@@ -40,10 +50,22 @@ public class VehiclePreferencesModuleTest {
     @Autowired
     private ClientRepository clientRepository;
 
+    @AfterEach
+    void tearDown() {
+        SecurityContextHolder.clearContext();
+    }
+
     @Test
     void should_createGetAndDeleteVehiclePreferences_WhenClientExist() throws Exception {
 
         UUID clientId = UUID.randomUUID();
+
+        AppUser appUser = new AppUser();
+        appUser.setRole(Roles.ROLE_CLIENT);
+        appUser.setUserId(clientId);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(appUser, null, appUser.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
         String URI = URL_PREFIX + CLIENT_PREFIX + PREFERENCES_PREFIX ;
 
         Client client = Client.builder()
@@ -72,7 +94,7 @@ public class VehiclePreferencesModuleTest {
 
         assertEquals(1, vehiclePreferenceRepository.count());
 
-        var resultList = mockMvc.perform(get(URI+ "/" + clientId + "/all")
+        var resultList = mockMvc.perform(get(URI + "/all")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpectAll(
                         status().isOk()
@@ -113,7 +135,14 @@ public class VehiclePreferencesModuleTest {
     @Test
     void should_returnEmptyList_WhenPreferencesNotExists() throws Exception {
         UUID clientId = UUID.randomUUID();
-        String URI = URL_PREFIX + CLIENT_PREFIX + PREFERENCES_PREFIX + "/" + clientId + "/all";
+
+        AppUser appUser = new AppUser();
+        appUser.setRole(Roles.ROLE_CLIENT);
+        appUser.setUserId(clientId);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(appUser, null, appUser.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String URI = URL_PREFIX + CLIENT_PREFIX + PREFERENCES_PREFIX + "/all";
 
         Client client = Client.builder()
                 .id(clientId)

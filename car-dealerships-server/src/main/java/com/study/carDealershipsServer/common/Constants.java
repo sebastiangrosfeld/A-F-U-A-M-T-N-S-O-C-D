@@ -11,4 +11,6 @@ public class Constants {
     public final static String PURCHASES_PREFIX = "/purchases";
     public final static String AUTH_PREFIX = "api/auth";
     public final static String URL_PREFIX = "http://localhost:8080/";
+    public final static String PURCHASES_OFFER_PREFIX = "/purchases/offers";
+    public final static String RENTAL_OFFER_PREFIX = "/rental/offers";
 }

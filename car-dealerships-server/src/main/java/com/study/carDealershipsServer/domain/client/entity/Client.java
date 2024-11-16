@@ -1,5 +1,7 @@
 package com.study.carDealershipsServer.domain.client.entity;
 
+import com.study.carDealershipsServer.domain.manager.entity.Purchase;
+import com.study.carDealershipsServer.domain.manager.entity.Rental;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +17,6 @@ import java.util.UUID;
 public class Client {
 
     @Id
-    @GeneratedValue
     private UUID id;
 
     @Column(unique = true, nullable = false)
@@ -41,5 +42,11 @@ public class Client {
 
     @OneToMany
     private List<VehiclePreference> vehiclePreferences;
+
+    @OneToMany
+    private List<Purchase> purchases;
+
+    @OneToMany
+    private List<Rental> rentals;
 
 }

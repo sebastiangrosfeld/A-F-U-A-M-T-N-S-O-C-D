@@ -4,6 +4,7 @@ import com.study.carDealershipsServer.application.authentication.useCase.AuthInt
 import com.study.carDealershipsServer.domain.auth.dto.ChangePasswordRequest;
 import com.study.carDealershipsServer.domain.auth.dto.LoginRequest;
 import com.study.carDealershipsServer.domain.auth.dto.RegisterRequest;
+import com.study.carDealershipsServer.domain.auth.dto.TokenResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +21,9 @@ public class AuthenticationController {
     private final AuthInterface authInterface;
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(LoginRequest loginRequest) {
-        authInterface.login(loginRequest);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<TokenResource> login(LoginRequest loginRequest) {
+        var token = authInterface.login(loginRequest);
+        return ResponseEntity.ok(token);
     }
 
     @PostMapping("/register")
@@ -33,7 +34,7 @@ public class AuthenticationController {
 
     @PostMapping("change-password")
     public ResponseEntity<Void> changePassword(ChangePasswordRequest changePasswordRequest) {
-        authInterface.changePassword();
+        authInterface.changePassword(changePasswordRequest);
         return ResponseEntity.ok().build();
     }
 }
