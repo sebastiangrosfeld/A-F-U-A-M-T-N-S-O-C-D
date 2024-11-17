@@ -21,6 +21,9 @@ public class RentalOffer {
     @Column(nullable = false)
     private BigDecimal pricePerHour;
 
+    @ManyToOne
+    private Manager manager;
+
     @OneToOne
     private Vehicle vehicle;
 }
