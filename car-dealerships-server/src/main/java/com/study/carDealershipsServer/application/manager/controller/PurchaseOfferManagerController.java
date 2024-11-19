@@ -1,8 +1,8 @@
 package com.study.carDealershipsServer.application.manager.controller;
 
-import com.study.carDealershipsServer.application.manager.useCase.PurchaseOfferManagerInterface;
-import com.study.carDealershipsServer.domain.manager.dto.CreatePurchaseOfferRequest;
-import com.study.carDealershipsServer.domain.manager.dto.PurchaseOfferResource;
+import com.study.carDealershipsServer.application.manager.useCase.PurchaseOfferManagerFacade;
+import com.study.carDealershipsServer.domain.purchase.dto.CreatePurchaseOfferRequest;
+import com.study.carDealershipsServer.domain.purchase.dto.PurchaseOfferResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +18,7 @@ import static com.study.carDealershipsServer.common.Constants.PURCHASES_OFFER_PR
 @RequiredArgsConstructor
 public class PurchaseOfferManagerController {
 
-    private final PurchaseOfferManagerInterface purchaseOfferManager;
+    private final PurchaseOfferManagerFacade purchaseOfferManager;
 
     @PostMapping
     public ResponseEntity<Void> createPurchaseOffer(CreatePurchaseOfferRequest createPurchaseOfferRequest) {

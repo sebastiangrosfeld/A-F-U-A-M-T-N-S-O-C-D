@@ -1,7 +1,7 @@
 package com.study.carDealershipsServer.application.client.controller;
 
-import com.study.carDealershipsServer.application.client.useCase.PurchaseClientInterface;
-import com.study.carDealershipsServer.domain.manager.dto.PurchaseResource;
+import com.study.carDealershipsServer.application.client.useCase.PurchaseClientFacade;
+import com.study.carDealershipsServer.domain.purchase.dto.PurchaseResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,11 +18,11 @@ import static com.study.carDealershipsServer.common.Constants.PURCHASES_PREFIX;
 @RequiredArgsConstructor
 public class PurchaseClientController {
 
-    private final PurchaseClientInterface purchaseClientInterface;
+    private final PurchaseClientFacade purchaseClientFacade;
 
     @GetMapping
     public ResponseEntity<Page<PurchaseResource>> getAllPurchases(Pageable pageable) {
-        var purchases = purchaseClientInterface.getClientPurchases(pageable);
+        var purchases = purchaseClientFacade.getClientPurchases(pageable);
         return ResponseEntity.ok(purchases);
     }
 }

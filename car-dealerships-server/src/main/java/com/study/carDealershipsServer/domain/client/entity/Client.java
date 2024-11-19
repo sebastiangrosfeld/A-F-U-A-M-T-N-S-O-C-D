@@ -1,7 +1,8 @@
 package com.study.carDealershipsServer.domain.client.entity;
 
-import com.study.carDealershipsServer.domain.manager.entity.Purchase;
-import com.study.carDealershipsServer.domain.manager.entity.Rental;
+import com.study.carDealershipsServer.domain.purchase.entity.Purchase;
+import com.study.carDealershipsServer.domain.rental.entity.Rental;
+import com.study.carDealershipsServer.domain.vehiclePreference.entity.VehiclePreference;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.application.authentication.service;
 
-import com.study.carDealershipsServer.application.authentication.useCase.AuthInterface;
+import com.study.carDealershipsServer.application.authentication.useCase.AuthFacade;
 import com.study.carDealershipsServer.common.config.security.JWTConfig;
 import com.study.carDealershipsServer.common.config.service.EmailService;
 import com.study.carDealershipsServer.common.config.service.QRService;
@@ -34,7 +34,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService implements AuthInterface, UserDetailsService {
+public class AuthService implements AuthFacade, UserDetailsService {
 
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;

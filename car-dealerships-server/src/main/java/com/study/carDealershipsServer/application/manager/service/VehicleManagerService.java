@@ -1,11 +1,11 @@
 package com.study.carDealershipsServer.application.manager.service;
 
-import com.study.carDealershipsServer.application.manager.useCase.VehicleManagerInterface;
+import com.study.carDealershipsServer.application.manager.useCase.VehicleManagerFacade;
 import com.study.carDealershipsServer.common.errors.ServiceException;
-import com.study.carDealershipsServer.domain.manager.repository.PurchaseOfferRepository;
-import com.study.carDealershipsServer.domain.manager.repository.PurchaseRepository;
-import com.study.carDealershipsServer.domain.manager.repository.RentalOfferRepository;
-import com.study.carDealershipsServer.domain.manager.repository.RentalRepository;
+import com.study.carDealershipsServer.domain.purchase.repository.PurchaseOfferRepository;
+import com.study.carDealershipsServer.domain.purchase.repository.PurchaseRepository;
+import com.study.carDealershipsServer.domain.rental.repository.RentalOfferRepository;
+import com.study.carDealershipsServer.domain.rental.repository.RentalRepository;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateEngineRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateModelRequest;
 import com.study.carDealershipsServer.domain.vehicle.dto.CreateVehicleRequest;
@@ -32,7 +32,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
-public class VehicleManagerService implements VehicleManagerInterface {
+public class VehicleManagerService implements VehicleManagerFacade {
 
     private final VehicleRepository vehicleRepository;
     private final EngineRepository engineRepository;

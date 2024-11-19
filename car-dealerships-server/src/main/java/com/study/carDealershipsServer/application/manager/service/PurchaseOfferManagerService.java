@@ -1,11 +1,11 @@
 package com.study.carDealershipsServer.application.manager.service;
 
-import com.study.carDealershipsServer.application.manager.useCase.PurchaseOfferManagerInterface;
+import com.study.carDealershipsServer.application.manager.useCase.PurchaseOfferManagerFacade;
 import com.study.carDealershipsServer.common.errors.ServiceException;
-import com.study.carDealershipsServer.domain.manager.dto.CreatePurchaseOfferRequest;
-import com.study.carDealershipsServer.domain.manager.dto.PurchaseOfferResource;
-import com.study.carDealershipsServer.domain.manager.mapper.PurchaseOfferMapper;
-import com.study.carDealershipsServer.domain.manager.repository.PurchaseOfferRepository;
+import com.study.carDealershipsServer.domain.purchase.dto.CreatePurchaseOfferRequest;
+import com.study.carDealershipsServer.domain.purchase.dto.PurchaseOfferResource;
+import com.study.carDealershipsServer.domain.purchase.mapper.PurchaseOfferMapper;
+import com.study.carDealershipsServer.domain.purchase.repository.PurchaseOfferRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class PurchaseOfferManagerService implements PurchaseOfferManagerInterface {
+public class PurchaseOfferManagerService implements PurchaseOfferManagerFacade {
 
     private final PurchaseOfferRepository purchaseOfferRepository;
     private final PurchaseOfferMapper purchaseOfferMapper;

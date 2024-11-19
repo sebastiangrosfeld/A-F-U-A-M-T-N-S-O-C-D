@@ -1,8 +1,8 @@
 package com.study.carDealershipsServer.application.client.controller;
 
-import com.study.carDealershipsServer.application.client.useCase.PreferenceClientInterface;
-import com.study.carDealershipsServer.domain.client.dto.CreatePreferenceVehicleRequest;
-import com.study.carDealershipsServer.domain.client.dto.PreferenceVehicleResource;
+import com.study.carDealershipsServer.application.client.useCase.PreferenceClientFacade;
+import com.study.carDealershipsServer.domain.vehiclePreference.dto.CreatePreferenceVehicleRequest;
+import com.study.carDealershipsServer.domain.vehiclePreference.dto.PreferenceVehicleResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,12 +21,12 @@ import static com.study.carDealershipsServer.common.Constants.PREFERENCES_PREFIX
 
 public class PreferenceClientController {
 
-    private final PreferenceClientInterface preferenceClientInterface;
+    private final PreferenceClientFacade preferenceClientFacade;
 
     @PostMapping
     @PreAuthorize("hasRole('CLIENT')")
     public ResponseEntity<Void> createPreference(@RequestBody CreatePreferenceVehicleRequest createPreferenceVehicleRequest) {
-        preferenceClientInterface.createPreference(createPreferenceVehicleRequest);
+        preferenceClientFacade.createPreference(createPreferenceVehicleRequest);
         return ResponseEntity.status(201).build();
     }
 
@@ -34,20 +34,20 @@ public class PreferenceClientController {
     @PreAuthorize("hasRole('CLIENT')")
     public ResponseEntity<List<PreferenceVehicleResource>> getPreferences() {
         var clientId = getAuthUserId();
-        var preferences = preferenceClientInterface.getPreferences(clientId);
+        var preferences = preferenceClientFacade.getPreferences(clientId);
         return ResponseEntity.ok(preferences);
     }
 
     @GetMapping("/{preferenceId}")
     public ResponseEntity<PreferenceVehicleResource> getPreference(@PathVariable UUID preferenceId) {
-        var preference = preferenceClientInterface.getPreference(preferenceId);
+        var preference = preferenceClientFacade.getPreference(preferenceId);
         return ResponseEntity.ok(preference);
     }
 
     @DeleteMapping("/{preferenceId}")
     @PreAuthorize("hasRole('CLIENT')")
     public ResponseEntity<Void> deletePreferences(@PathVariable UUID preferenceId) {
-        preferenceClientInterface.deletePreference(preferenceId);
+        preferenceClientFacade.deletePreference(preferenceId);
         return ResponseEntity.noContent().build();
     }
 }

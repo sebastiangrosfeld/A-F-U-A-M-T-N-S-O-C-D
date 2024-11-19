@@ -1,8 +1,8 @@
 package com.study.carDealershipsServer.application.manager.service;
 
-import com.study.carDealershipsServer.application.manager.useCase.RentalOfferManagerInterface;
-import com.study.carDealershipsServer.domain.manager.dto.CreateRentalOfferRequest;
-import com.study.carDealershipsServer.domain.manager.dto.RentalOfferResource;
+import com.study.carDealershipsServer.application.manager.useCase.RentalOfferManagerFacade;
+import com.study.carDealershipsServer.domain.rental.dto.CreateRentalOfferRequest;
+import com.study.carDealershipsServer.domain.rental.dto.RentalOfferResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class RentalOfferManagerService implements RentalOfferManagerInterface {
+public class RentalOfferManagerService implements RentalOfferManagerFacade {
 
     @Override
     public void createRentalOffer(CreateRentalOfferRequest request, UUID managerId) {

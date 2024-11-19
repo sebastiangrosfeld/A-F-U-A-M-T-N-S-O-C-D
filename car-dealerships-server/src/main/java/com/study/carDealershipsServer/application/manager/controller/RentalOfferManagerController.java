@@ -1,8 +1,8 @@
 package com.study.carDealershipsServer.application.manager.controller;
 
-import com.study.carDealershipsServer.application.manager.useCase.RentalOfferManagerInterface;
-import com.study.carDealershipsServer.domain.manager.dto.CreateRentalOfferRequest;
-import com.study.carDealershipsServer.domain.manager.dto.RentalOfferResource;
+import com.study.carDealershipsServer.application.manager.useCase.RentalOfferManagerFacade;
+import com.study.carDealershipsServer.domain.rental.dto.CreateRentalOfferRequest;
+import com.study.carDealershipsServer.domain.rental.dto.RentalOfferResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +18,7 @@ import static com.study.carDealershipsServer.common.Constants.RENTAL_OFFER_PREFI
 @RequestMapping(MANAGER_PREFIX + RENTAL_OFFER_PREFIX)
 public class RentalOfferManagerController {
 
-    private final RentalOfferManagerInterface rentalOfferManager;
+    private final RentalOfferManagerFacade rentalOfferManager;
 
     @PostMapping
     public ResponseEntity<Void> createRentalOffer(CreateRentalOfferRequest request) {

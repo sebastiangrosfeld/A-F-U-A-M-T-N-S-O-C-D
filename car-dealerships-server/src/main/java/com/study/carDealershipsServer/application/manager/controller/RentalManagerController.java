@@ -1,6 +1,6 @@
 package com.study.carDealershipsServer.application.manager.controller;
 
-import com.study.carDealershipsServer.application.manager.useCase.RentalManagerInterface;
+import com.study.carDealershipsServer.application.manager.useCase.RentalManagerFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,5 +12,5 @@ import static com.study.carDealershipsServer.common.Constants.*;
 @RequiredArgsConstructor
 public class RentalManagerController {
 
-    private final RentalManagerInterface rentalManagerInterface;
+    private final RentalManagerFacade rentalManagerFacade;
 }

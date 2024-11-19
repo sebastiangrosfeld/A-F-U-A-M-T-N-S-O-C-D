@@ -1,13 +1,13 @@
 package com.study.carDealershipsServer.application.manager.service;
 
-import com.study.carDealershipsServer.application.manager.useCase.PurchaseManagerInterface;
+import com.study.carDealershipsServer.application.manager.useCase.PurchaseManagerFacade;
 import com.study.carDealershipsServer.common.errors.ServiceException;
 import com.study.carDealershipsServer.domain.client.repository.ClientRepository;
-import com.study.carDealershipsServer.domain.manager.dto.CreatePurchaseRequest;
-import com.study.carDealershipsServer.domain.manager.dto.EditPurchaseStatusRequest;
-import com.study.carDealershipsServer.domain.manager.dto.PurchaseResource;
-import com.study.carDealershipsServer.domain.manager.mapper.PurchaseMapper;
-import com.study.carDealershipsServer.domain.manager.repository.PurchaseRepository;
+import com.study.carDealershipsServer.domain.purchase.dto.CreatePurchaseRequest;
+import com.study.carDealershipsServer.domain.purchase.dto.EditPurchaseStatusRequest;
+import com.study.carDealershipsServer.domain.purchase.dto.PurchaseResource;
+import com.study.carDealershipsServer.domain.purchase.mapper.PurchaseMapper;
+import com.study.carDealershipsServer.domain.purchase.repository.PurchaseRepository;
 import com.study.carDealershipsServer.domain.vehicle.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class PurchaseManagerService implements PurchaseManagerInterface {
+public class PurchaseManagerService implements PurchaseManagerFacade {
 
     private final PurchaseRepository purchaseRepository;
     private final VehicleRepository vehicleRepository;

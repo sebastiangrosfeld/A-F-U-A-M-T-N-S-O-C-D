@@ -1,10 +1,10 @@
 package com.study.carDealershipsServer.application.client.service;
 
-import com.study.carDealershipsServer.application.client.useCase.RentalClientInterface;
+import com.study.carDealershipsServer.application.client.useCase.RentalClientFacade;
 import com.study.carDealershipsServer.common.errors.ServiceException;
-import com.study.carDealershipsServer.domain.client.dto.BookRentalRequest;
-import com.study.carDealershipsServer.domain.client.mapper.RentalMapper;
-import com.study.carDealershipsServer.domain.manager.repository.RentalRepository;
+import com.study.carDealershipsServer.domain.rental.dto.BookRentalRequest;
+import com.study.carDealershipsServer.domain.rental.mapper.RentalMapper;
+import com.study.carDealershipsServer.domain.rental.repository.RentalRepository;
 import com.study.carDealershipsServer.domain.vehicle.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class RentalClientService implements RentalClientInterface {
+public class RentalClientService implements RentalClientFacade {
 
     private final RentalRepository rentalRepository;
     private final VehicleRepository vehicleRepository;
