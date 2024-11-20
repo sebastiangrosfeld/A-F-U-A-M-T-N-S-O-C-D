@@ -111,6 +111,11 @@
 			<version>12.28.1</version> <!-- Upewnij się, że używasz najnowszej wersji -->
 		</dependency>
 		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-spring-boot-starter</artifactId>
+			<version>2.16.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
