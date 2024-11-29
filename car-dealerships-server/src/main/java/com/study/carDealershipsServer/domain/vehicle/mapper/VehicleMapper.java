@@ -21,6 +21,7 @@ public class VehicleMapper {
         return Vehicle.builder()
                 .model(vehicleModel)
                 .engines(engines)
+                .description(createVehicleRequest.description())
                 .vinNumber(createVehicleRequest.vinNumber())
                 .type(createVehicleRequest.vehicleType())
                 .color(createVehicleRequest.color())
@@ -34,6 +35,7 @@ public class VehicleMapper {
         var engines = vehicle.getEngines().stream().map(engineMapper::entityToResource).toList();
         return VehicleResource.builder()
                 .vinNumber(vehicle.getVinNumber())
+                .description(vehicle.getDescription())
                 .type(vehicle.getType())
                 .color(vehicle.getColor())
                 .bodyLine(vehicle.getBodyLine())

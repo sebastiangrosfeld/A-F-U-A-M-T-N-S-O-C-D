@@ -26,7 +26,10 @@ public class Purchase {
     @Column(nullable = false, unique = true)
     private UUID purchaseId;
 
-    @Column(nullable = false)
+    @Column
+    private LocalDateTime bookedPurchaseDate;
+
+    @Column
     private LocalDateTime purchaseDate;
 
     @Column(nullable = false)

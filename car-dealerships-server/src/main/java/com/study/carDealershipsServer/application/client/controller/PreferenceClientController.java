@@ -1,8 +1,8 @@
 package com.study.carDealershipsServer.application.client.controller;
 
 import com.study.carDealershipsServer.application.client.useCase.PreferenceClientFacade;
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.CreatePreferenceVehicleRequest;
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.PreferenceVehicleResource;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.CreatePreferenceVehicleRequest;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.PreferenceVehicleResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

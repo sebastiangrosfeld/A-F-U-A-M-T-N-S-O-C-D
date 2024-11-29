@@ -26,6 +26,9 @@ public class Vehicle {
     private VehicleType type;
 
     @Column(nullable = false)
+    private String description;
+
+    @Column(nullable = false)
     private String color;
 
     @Column(nullable = false)

@@ -1,12 +1,12 @@
 package com.study.carDealershipsServer.application.client.service;
 
 import com.study.carDealershipsServer.application.client.useCase.PreferenceClientFacade;
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.CreatePreferenceVehicleRequest;
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.PreferenceVehicleResource;
-import com.study.carDealershipsServer.domain.vehiclePreference.mapper.VehiclePreferenceMapper;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.CreatePreferenceVehicleRequest;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.PreferenceVehicleResource;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.mapper.VehiclePreferenceMapper;
 import com.study.carDealershipsServer.domain.client.repository.ClientRepository;
 import com.study.carDealershipsServer.domain.vehicle.repository.VehicleModelRepository;
-import com.study.carDealershipsServer.domain.vehiclePreference.repository.VehiclePreferenceRepository;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.repository.VehiclePreferenceRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

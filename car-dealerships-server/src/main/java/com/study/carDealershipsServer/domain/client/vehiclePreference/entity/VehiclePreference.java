@@ -1,4 +1,4 @@
-package com.study.carDealershipsServer.domain.vehiclePreference.entity;
+package com.study.carDealershipsServer.domain.client.vehiclePreference.entity;
 
 import com.study.carDealershipsServer.common.enums.VehicleBrand;
 import com.study.carDealershipsServer.common.enums.VehicleType;

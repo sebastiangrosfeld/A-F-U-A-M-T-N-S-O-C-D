@@ -59,6 +59,7 @@ public class VehicleModuleTest {
         CreateVehicleRequest request = CreateVehicleRequest.builder()
                 .vinNumber("12345")
                 .vehicleType(VehicleType.CAR)
+                .description("description")
                 .color("red")
                 .bodyLine("coupe")
                 .yearOfProduction(2010)

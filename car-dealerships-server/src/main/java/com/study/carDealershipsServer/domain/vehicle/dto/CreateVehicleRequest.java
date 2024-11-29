@@ -20,6 +20,8 @@ public record CreateVehicleRequest(
         @NotNull
         VehicleType vehicleType,
         @NotNull
+        String description,
+        @NotNull
         String color,
         @NotNull
         String bodyLine,

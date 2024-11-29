@@ -12,6 +12,7 @@ import java.util.List;
 public record VehicleResource(
         String vinNumber,
         VehicleType type,
+        String description,
         String color,
         String bodyLine,
         Integer yearOfProduction,

@@ -1,7 +1,7 @@
 package com.study.carDealershipsServer.application.client.useCase;
 
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.CreatePreferenceVehicleRequest;
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.PreferenceVehicleResource;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.CreatePreferenceVehicleRequest;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.PreferenceVehicleResource;
 
 import java.util.List;
 import java.util.UUID;

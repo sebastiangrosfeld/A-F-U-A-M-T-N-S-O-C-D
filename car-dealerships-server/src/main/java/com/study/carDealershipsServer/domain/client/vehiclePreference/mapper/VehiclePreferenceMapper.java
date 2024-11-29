@@ -1,9 +1,9 @@
-package com.study.carDealershipsServer.domain.vehiclePreference.mapper;
+package com.study.carDealershipsServer.domain.client.vehiclePreference.mapper;
 
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.CreatePreferenceVehicleRequest;
-import com.study.carDealershipsServer.domain.vehiclePreference.dto.PreferenceVehicleResource;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.CreatePreferenceVehicleRequest;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.dto.PreferenceVehicleResource;
 import com.study.carDealershipsServer.domain.client.entity.Client;
-import com.study.carDealershipsServer.domain.vehiclePreference.entity.VehiclePreference;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.entity.VehiclePreference;
 import com.study.carDealershipsServer.domain.vehicle.dto.VehicleModelResource;
 import com.study.carDealershipsServer.domain.vehicle.mapper.VehicleModelMapper;
 import com.study.carDealershipsServer.domain.vehicle.repository.VehicleModelRepository;

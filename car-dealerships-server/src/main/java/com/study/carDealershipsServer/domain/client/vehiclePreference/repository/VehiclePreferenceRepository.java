@@ -1,6 +1,6 @@
-package com.study.carDealershipsServer.domain.vehiclePreference.repository;
+package com.study.carDealershipsServer.domain.client.vehiclePreference.repository;
 
-import com.study.carDealershipsServer.domain.vehiclePreference.entity.VehiclePreference;
+import com.study.carDealershipsServer.domain.client.vehiclePreference.entity.VehiclePreference;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
